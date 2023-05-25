@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2id36utee25e"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_h1ffj"]
+[ext_resource type="Theme" uid="uid://qhswtaprg2gd" path="res://sniglet.tres" id="1_ycgye"]
+[ext_resource type="Texture2D" uid="uid://bms3hevgj0nmo" path="res://art/terbg.png" id="2_q3djj"]
+[ext_resource type="FontFile" uid="uid://lu17fgje073h" path="res://art/Sniglet-ExtraBold.ttf" id="2_vv4xc"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_h1ffj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+modulate = Color(0.615686, 0.615686, 0.615686, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q3djj")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ycgye")
+theme_override_fonts/bold_font = ExtResource("2_vv4xc")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+text = "[u]release-v0.2.0.0[/u]
+
+[b]Terragear[/b] was made with love by [b]Lunaui[/b] ☔(Lunaui#4877)
+Terraria Community Class Guide made by [b]Jason[/b] (Jasonthe4th#3941)
+Made possible by the lovely community members on the [color=lavender]Terraria Discord Server[/color].
+
+Artwork directly ripped from the [color=cyan][u][url=https://terraria.wiki.gg/wiki/Terraria_Wiki]Official Terraria Wiki[/url][/u][/color] unless otherwise specified.
+
+-----------------------------------------------------
+
+Copyright © 2023 Lunauii
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+"
+
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="meta_clicked" from="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
