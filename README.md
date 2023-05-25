@@ -1,5 +1,5 @@
 # Terragear
-Terragear is an interactive one-size-fits all guide for the video game Terraria
+Terragear is an interactive one-size-fits all guide for the video game Terraria.
 
 # __Terragear FAQ:__
 
