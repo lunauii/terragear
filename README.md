@@ -1,5 +1,6 @@
 # Terragear
 Terragear is an interactive one-size-fits all guide for the video game Terraria.
+Made by Lunauii, made possible by the #terraria-help channel on the Terraria Discord server.
 
 # __Terragear FAQ:__
 
