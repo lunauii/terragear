@@ -124,3 +124,10 @@ func _on_guide_image_exit_pressed():
 	guide_image_container.get_child(0).queue_free()
 
 
+
+func _on_search_focus_entered():
+	if DisplayServer.has
+	DisplayServer.virtual_keyboard_show("")
+
+func _on_search_focus_exited():
+	DisplayServer.virtual_keyboard_hide()
