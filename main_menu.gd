@@ -27,15 +27,17 @@ func dir_contents(path):
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
+			file_name = file_name.replace('.import', '') # <--- remove the .import
+			
 			if dir.current_is_dir():
 				print("Found directory: " + file_name)
-				
-			
+
 			#Check to see if a file ends with .import and skip over it.
 			#Then, create a TextureButton with the scanned information.
-			elif file_name.ends_with('.png'):
+			elif !file_name.ends_with('.import'):
 				print("Found file: " + file_name)
-				var texture = load(guides + file_name)
+				var texture = ResourceLoader.load(guides + file_name)
+
 				var guide_button_instance = TextureButton.new()
 				guide_button_instance.name = file_name.trim_suffix(".png")
 				guide_button_instance.texture_normal = texture
