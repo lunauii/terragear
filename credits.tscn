@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2id36utee25e"]
+[gd_scene load_steps=7 format=3 uid="uid://b2id36utee25e"]
 
 [ext_resource type="Script" path="res://credits.gd" id="1_h1ffj"]
 [ext_resource type="Theme" uid="uid://qhswtaprg2gd" path="res://sniglet.tres" id="1_ycgye"]
 [ext_resource type="Texture2D" uid="uid://bms3hevgj0nmo" path="res://art/terbg.png" id="2_q3djj"]
 [ext_resource type="FontFile" uid="uid://lu17fgje073h" path="res://art/Sniglet-ExtraBold.ttf" id="2_vv4xc"]
+[ext_resource type="Texture2D" uid="uid://v206tf5k6ca6" path="res://art/terragear.png" id="4_4wgt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jw1un"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_h1ffj")
@@ -57,9 +60,51 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("1_ycgye")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jw1un")
 text = "Back"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_4wgt6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ycgye")
+theme_override_font_sizes/font_size = 70
+text = "Terragear"
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Info" type="Control" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/Info/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_ycgye")
@@ -70,13 +115,86 @@ theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]release-v0.2.0.0[/u]
+text = "[u]Terragear v0.3.0; Jason's Class Guide v7.0.0[/u]
+Terragear is an interactive tool to help you on your Terraria adventures; made by the community, for the community.
 
-[b]Terragear[/b] was made with love by [b]Lunaui[/b] ☔(Lunaui#4877)
-Terraria Community Class Guide made by [b]Jason[/b] (Jasonthe4th#3941)
+Open sourced on [color=cyan][u][url=https://github.com/lunauii/terragear/]Lunaui's github[/url][/u][/color]! 
+Submit suggestions or even help out with the code there.
+
+Seach up guides using the search bar and filters.
+
+For specifics on how to use Jason's guides, search up \"How to\" in the guides."
+
+[node name="Credits" type="Control" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/Credits/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ycgye")
+theme_override_fonts/bold_font = ExtResource("2_vv4xc")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+text = "[b]Terragear[/b] was made with love by [b]Lunaui[/b] ☔(Lunaui#4877)
+[b]Jason's Class Guide[/b] made by [b]Jason[/b] (Jasonthe4th#3941)
+
 Made possible by the lovely community members on the [color=lavender]Terraria Discord Server[/color].
 
-Artwork directly ripped from the [color=cyan][u][url=https://terraria.wiki.gg/wiki/Terraria_Wiki]Official Terraria Wiki[/url][/u][/color] unless otherwise specified.
+[u]Jason's Guide Special Thanks:[/u]
+thisisabadname#0890
+KosmicLupus#4224
+cjheath#9695
+Terraria Tree#3852
+Bloodzy#5957
+ARK | Quasar#6944
+Defender#0346
+Sorbet Cafe#7983"
+
+[node name="boring legal stuff" type="Control" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/boring legal stuff"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/boring legal stuff/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ycgye")
+theme_override_fonts/bold_font = ExtResource("2_vv4xc")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+text = "Artwork directly ripped from the [color=cyan][u][url=https://terraria.wiki.gg/wiki/Terraria_Wiki]Official Terraria Wiki[/url][/u][/color] unless otherwise specified.
 
 -----------------------------------------------------
 
@@ -104,4 +222,6 @@ SOFTWARE.
 "
 
 [connection signal="pressed" from="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="meta_clicked" from="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/Info/MarginContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/Credits/MarginContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/VSplitContainer/VBoxContainer/TabContainer/boring legal stuff/MarginContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

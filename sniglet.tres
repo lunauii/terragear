@@ -1,6 +1,9 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://qhswtaprg2gd"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://qhswtaprg2gd"]
 
 [ext_resource type="FontFile" uid="uid://ccjk2ctjrqwsf" path="res://art/Sniglet-Regular.ttf" id="1_ht26o"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnlbj"]
+
 [resource]
 default_font = ExtResource("1_ht26o")
+/styles/Focus = SubResource("StyleBoxEmpty_tnlbj")

@@ -17,7 +17,7 @@ boot_splash/bg_color=Color(0.105882, 0.0901961, 0.129412, 1)
 boot_splash/image="res://art/lunaui.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://art/terragear.png"
 
 [display]
 

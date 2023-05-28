@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsm1opcf8w7lj"]
+[gd_scene load_steps=12 format=3 uid="uid://bsm1opcf8w7lj"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_oqllu"]
 [ext_resource type="Texture2D" uid="uid://bms3hevgj0nmo" path="res://art/terbg.png" id="1_wtglk"]
 [ext_resource type="Theme" uid="uid://qhswtaprg2gd" path="res://sniglet.tres" id="3_gp8k0"]
+[ext_resource type="Texture2D" uid="uid://cmoilwtfjmbwi" path="res://art/search.png" id="4_tma55"]
 
 [sub_resource type="Animation" id="Animation_38sbq"]
 length = 0.001
@@ -42,6 +43,25 @@ _data = {
 "RESET": SubResource("Animation_38sbq"),
 "rainbow": SubResource("Animation_u0f4w")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1sii2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4w33"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru5hv"]
+bg_color = Color(0, 0, 0, 0.870588)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgcov"]
+bg_color = Color(0.0745098, 0.0823529, 0.168627, 0.968627)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.87451, 0.737255, 0.388235, 1)
 
 [node name="YAITG" type="Node"]
 
@@ -98,11 +118,13 @@ theme = ExtResource("3_gp8k0")
 
 [node name="YAITGLabel" type="Label" parent="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer"]
 modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "                            Terragear                          "
+text = "Terragear v0.3.0"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="YAITGPlayer" type="AnimationPlayer" parent="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer"]
 root_node = NodePath("../YAITGLabel")
@@ -121,13 +143,17 @@ layout_mode = 2
 
 [node name="Credits" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/CreditsSearch/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_gp8k0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1sii2")
 text = "Credits and Info
 "
 
 [node name="Search" type="LineEdit" parent="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/CreditsSearch/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_gp8k0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s4w33")
 placeholder_text = "Search for a specific guide..."
-alignment = 1
+right_icon = ExtResource("4_tma55")
 
 [node name="Label" type="Label" parent="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -347,28 +373,21 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme = ExtResource("3_gp8k0")
-text = "results: 0"
-vertical_alignment = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+[node name="NoResults" type="CenterContainer" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/NoResults"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/NoResults/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "nothing here yet :3"
+text = "no results found! D:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/NoResults/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.607843, 0.607843, 0.607843, 1)
 theme_override_font_sizes/font_size = 12
@@ -377,7 +396,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
-visible = false
 layout_mode = 2
 horizontal_scroll_mode = 0
 
@@ -386,80 +404,95 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="PanelContainer" type="PanelContainer" parent="UI/Main Menu"]
 layout_mode = 2
-text = "asdasd"
+offset_left = 19.0
+offset_top = 126.0
+offset_right = 270.0
+offset_bottom = 631.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ru5hv")
 
-[node name="Button2" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="CenterContainer" type="CenterContainer" parent="UI/Main Menu/PanelContainer"]
 layout_mode = 2
-text = "asddfasdf"
 
-[node name="Button3" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Main Menu/PanelContainer/CenterContainer"]
 layout_mode = 2
-text = "asddfasdf"
 
-[node name="Button4" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="Label" type="Label" parent="UI/Main Menu/PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "asddfasdf"
+theme = ExtResource("3_gp8k0")
+theme_override_font_sizes/font_size = 24
+text = "coming soon!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button5" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="Label2" type="Label" parent="UI/Main Menu/PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "asddfasdf"
+theme = ExtResource("3_gp8k0")
+theme_override_colors/font_color = Color(0.556863, 0.556863, 0.556863, 1)
+theme_override_font_sizes/font_size = 15
+text = "(v1.0.0)"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button6" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="Results" type="Label" parent="UI/Main Menu"]
+visible = false
 layout_mode = 2
-text = "asddfasdf"
+anchor_left = 0.255
+anchor_top = 0.03
+anchor_right = 0.983
+anchor_bottom = 0.969
+offset_left = 774.24
+offset_top = 584.56
+offset_right = -0.416016
+offset_bottom = 0.0879517
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("3_gp8k0")
+text = "results: 0"
+vertical_alignment = 2
 
-[node name="Button7" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
+[node name="GuideImage" type="Control" parent="UI/Main Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Button8" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
+[node name="MarginContainer2" type="MarginContainer" parent="UI/Main Menu/GuideImage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
 
-[node name="Button9" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="PanelContainer" type="PanelContainer" parent="UI/Main Menu/GuideImage/MarginContainer2"]
 layout_mode = 2
-text = "asddfasdf"
+theme_override_styles/panel = SubResource("StyleBoxFlat_hgcov")
 
-[node name="Button10" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer"]
 layout_mode = 2
-text = "asddfasdf"
 
-[node name="Button11" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="GuideImageContainer" type="BoxContainer" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer/ScrollContainer"]
 layout_mode = 2
-text = "asddfasdf"
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Button12" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
+[node name="GuideImageExit" type="Button" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer"]
 layout_mode = 2
-text = "asddfasdf"
-
-[node name="Button13" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
-
-[node name="Button14" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
-
-[node name="Button15" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
-
-[node name="Button16" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
-
-[node name="Button17" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
-
-[node name="Button18" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
-
-[node name="Button19" type="Button" parent="UI/Main Menu/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items"]
-layout_mode = 2
-text = "asddfasdf"
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("3_gp8k0")
+theme_override_font_sizes/font_size = 30
+text = "[X]"
 
 [connection signal="pressed" from="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/CreditsSearch/MarginContainer/VBoxContainer/Credits" to="UI/Main Menu" method="_on_credits_pressed"]
+[connection signal="text_changed" from="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/CreditsSearch/MarginContainer/VBoxContainer/Search" to="UI/Main Menu" method="_on_search_text_changed"]
+[connection signal="pressed" from="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer/GuideImageExit" to="UI/Main Menu" method="_on_guide_image_exit_pressed"]
