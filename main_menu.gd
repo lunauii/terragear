@@ -126,7 +126,6 @@ func _on_guide_image_exit_pressed():
 
 
 func _on_search_focus_entered():
-	if DisplayServer.has
 	DisplayServer.virtual_keyboard_show("")
 
 func _on_search_focus_exited():
