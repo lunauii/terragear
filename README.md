@@ -11,11 +11,12 @@
 Terragear is an interactive one-size-fits all guide for the video game Terraria.
 
 ##### __Table of Contents__
-- [Running Terragear](#running-terragear)
-- [Developing Terragear](#development)
-- [Feedback](#feature-requests-and-bug-reports)
-- [License](#license)
-- [FAQ](#terragear-faq)
+> - [Running Terragear](#running-terragear)
+> - [Developing Terragear](#development)
+>    - [Downloading the source code](#downloading-the-source-code)
+> - [Feedback](#feature-requests-and-bug-reports)
+> - [License](#license)
+> - [FAQ](#terragear-faq)
 
 Terragear is in heavy development but is mostly stable, except on certain Android devices.
 If you would like to contribute, please read more.
