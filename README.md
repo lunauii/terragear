@@ -19,7 +19,7 @@ Terragear is in heavy development but is mostly stable, except on certain Androi
 ## Running Terragear
 **Latest build:**
 
-| [Windows 7+ (x64)](https://github.com/ppy/osu/releases/latest/download) | [Chrome 77+, Edge 79+, Opera 73+, Firefox 75+ (Partial Support)](https://lunaui.itch.io/terragear) |
+| [Windows 7+ (x64)](https://github.com/lunauii/terragear/releases/latest) | [Chrome 77+, Edge 79+, Opera 73+, Firefox 75+ (Partial Support)](https://lunaui.itch.io/terragear) |
 | ------------- | ------------- |
 
 If your platform is not listed above, you may have to wait for future releases.
