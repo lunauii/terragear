@@ -34,6 +34,7 @@ If your platform is not listed above, you may have to wait for future releases.
 
 To easily develop on Terragear, you must meet the following prerequisites:
 - [Godot 4.0+](godotengine.org/download/) or [Godot Engine Web Editor _(not recommended)_](https://editor.godotengine.org/releases/latest/)
+
 and additionally the following if you plan to export/build the project:
 - [rcedit _(exporting to Windows)_](https://github.com/electron/rcedit/releases)
 - [WINE _(Godot for Mac/Linux)_](https://www.winehq.org)
