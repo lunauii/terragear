@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsm1opcf8w7lj"]
+[gd_scene load_steps=13 format=3 uid="uid://bsm1opcf8w7lj"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_oqllu"]
 [ext_resource type="Texture2D" uid="uid://bms3hevgj0nmo" path="res://art/terbg.png" id="1_wtglk"]
 [ext_resource type="Theme" uid="uid://qhswtaprg2gd" path="res://sniglet.tres" id="3_gp8k0"]
 [ext_resource type="Texture2D" uid="uid://cmoilwtfjmbwi" path="res://art/search.png" id="4_tma55"]
+[ext_resource type="Script" path="res://guide_camera.gd" id="6_8gwuk"]
 
 [sub_resource type="Animation" id="Animation_38sbq"]
 length = 0.001
@@ -122,7 +123,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Terragear v0.3.2"
+text = "Terragear v0.4.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -477,13 +478,25 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hgcov")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="GuideImageContainer" type="BoxContainer" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer/ScrollContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+stretch = true
+
+[node name="GuideImageContainer" type="SubViewport" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer/MarginContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="GuideCamera" type="Camera2D" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer/MarginContainer/SubViewportContainer/GuideImageContainer"]
+offset = Vector2(512, 280)
+script = ExtResource("6_8gwuk")
 
 [node name="GuideImageExit" type="Button" parent="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer"]
 layout_mode = 2
@@ -497,4 +510,5 @@ text = "[X]"
 [connection signal="focus_entered" from="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/CreditsSearch/MarginContainer/VBoxContainer/Search" to="UI/Main Menu" method="_on_search_focus_entered"]
 [connection signal="focus_exited" from="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/CreditsSearch/MarginContainer/VBoxContainer/Search" to="UI/Main Menu" method="_on_search_focus_exited"]
 [connection signal="text_changed" from="UI/Main Menu/MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/CreditsSearch/MarginContainer/VBoxContainer/Search" to="UI/Main Menu" method="_on_search_text_changed"]
+[connection signal="size_changed" from="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer/MarginContainer/SubViewportContainer/GuideImageContainer" to="UI/Main Menu" method="_on_guide_image_container_size_changed"]
 [connection signal="pressed" from="UI/Main Menu/GuideImage/MarginContainer2/PanelContainer/GuideImageExit" to="UI/Main Menu" method="_on_guide_image_exit_pressed"]

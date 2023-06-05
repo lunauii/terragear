@@ -5,12 +5,13 @@ extends Control
 @onready var guide_data = "res://data/guide_data.txt"
 @onready var guides = "res://data/guides/"
 @onready var guide_container = $MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Items
-@onready var guide_image_container = $GuideImage/MarginContainer2/PanelContainer/ScrollContainer/GuideImageContainer
+@onready var guide_image_container = $GuideImage/MarginContainer2/PanelContainer/MarginContainer/SubViewportContainer/GuideImageContainer
 @onready var guide_image_exit = $GuideImage/MarginContainer2/PanelContainer/GuideImageExit
 @onready var guide_image = $GuideImage
 @onready var search_bar = $MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/CreditsSearch/MarginContainer/VBoxContainer/Search
 @onready var results_number = $Results
 @onready var no_results_screen = $MarginContainer/HBoxContainer/PanelContainer/MarginContainer/NoResults
+@onready var guide_camera = $GuideImage/MarginContainer2/PanelContainer/MarginContainer/SubViewportContainer/GuideImageContainer/GuideCamera
 
 @onready var items = guide_container.get_children()
 
@@ -121,12 +122,14 @@ func on_guide_button_pressed(_file_name, button):
 
 func _on_guide_image_exit_pressed():
 	guide_image.hide()
-	guide_image_container.get_child(0).queue_free()
-
-
+	guide_image_container.get_child(1).queue_free()
 
 func _on_search_focus_entered():
 	DisplayServer.virtual_keyboard_show("")
 
 func _on_search_focus_exited():
 	DisplayServer.virtual_keyboard_hide()
+
+
+func _on_guide_image_container_size_changed():
+	pass

@@ -115,7 +115,7 @@ theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]Terragear v0.3.2; Jason's Class Guide v7.0.0[/u]
+text = "[u]Terragear v0.4.0; Jason's Class Guide v7.0.0[/u]
 Terragear is an interactive tool to help you on your Terraria adventures; made by the community, for the community.
 
 Open sourced on [color=cyan][u][url=https://github.com/lunauii/terragear/]Lunaui's github[/url][/u][/color]! 
@@ -152,7 +152,8 @@ theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[b]Terragear[/b] was made with love by [b]Lunaui[/b] ☔(Lunaui#4877)
+text = "[b]Terragear[/b] was made with love by [b]Lunaui[/b] (Lunaui#4877)
+Terragear Logo made by [b]Defender[/b] (Defender#0346)
 [b]Jason's Class Guide[/b] made by [b]Jason[/b] (Jasonthe4th#3941)
 
 Made possible by the lovely community members on the [color=lavender]Terraria Discord Server[/color].
