@@ -8,6 +8,9 @@
 [![License](https://img.shields.io/github/license/lunauii/terragear)](https://github.com/lunauii/terragear/blob/main/LICENSE)
 ![Most Prelevant Language](https://img.shields.io/github/languages/top/lunauii/terragear?color=orange)
 
+> [!WARNING]  
+> Archived. Will port to C# in the future.
+
 Terragear is an interactive one-size-fits all guide for the video game Terraria.
 
 ##### __Table of Contents__
